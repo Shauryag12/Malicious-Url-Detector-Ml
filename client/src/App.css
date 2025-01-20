@@ -1,0 +1,69 @@
+/* 
+  Global Styles 
+  -------------
+  Inspired by a minimal Apple-like aesthetic:
+  - Generous whitespace
+  - Subtle animations and transitions
+  - Clean typography
+*/
+
+/* Reset and base styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  color: #333;
+  background-color: #fafafa;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Simple container utility */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Minimal link styling */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: #0071e3; /* Apple-like blue accent */
+}
+
+/* Basic button styling */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  margin: 0.25rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #0071e3; /* Apple-like accent color */
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #005bb5; /* Slightly darker hover state */
+}
+
+/* Responsive utility classes - You can expand as needed */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+}

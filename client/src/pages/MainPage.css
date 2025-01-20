@@ -1,0 +1,248 @@
+/*
+  MainPage.css
+  -----------
+  - Hero with overlay
+  - URL checker (80vh) w/ progress bar and staged messages
+  - Info sections with images, alternating layout
+  - Minimal footer
+*/
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 80vh; /* Adjust as needed for the hero */
+  background: url("https://images.unsplash.com/photo-1600891964599-f61ba0e24092?ixlib=rb-4.0.3&auto=format&fit=crop&w=1680&q=80")
+    center center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  color: #fff;
+  z-index: 1;
+  padding: 0 1rem;
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+.btn-hero {
+  animation: fadeInUp 1.5s ease forwards;
+}
+
+/* Keyframe for fade-up animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* URL Checker Section */
+.checker-section {
+  min-height: 80vh; /* 80vh as requested */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f0f0f0, #ffffff);
+  padding: 2rem 1rem; /* Some padding */
+  box-sizing: border-box;
+}
+
+.checker-container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+}
+
+.url-input-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto 1rem auto;
+  gap: 0.5rem;
+}
+
+.url-input-wrapper input {
+  flex: 1;
+  max-width: 400px;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.2s;
+}
+
+.url-input-wrapper input:focus {
+  outline: none;
+  border-color: #0071e3; /* Apple-like accent */
+}
+
+.url-input-wrapper .btn {
+  flex-shrink: 0;
+  margin-left: 0;
+}
+
+/* Progress Bar */
+.progress-container {
+  margin-top: 1rem;
+}
+
+.progress-bar {
+  height: 10px;
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #0071e3, #005bb5);
+  transition: width 0.5s ease;
+}
+
+/* Progress message under the bar */
+.progress-message {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* If loading, we can dim the input and button slightly */
+.url-input-wrapper.loading input,
+.url-input-wrapper.loading .btn {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Verdict Messages */
+.verdict {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 6px;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.verdict-ok {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.verdict-malicious {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+/* Info Sections */
+.info-section {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  background-color: #fafafa;
+}
+
+.info-section.odd-layout .info-content {
+  flex-direction: row;
+}
+.info-section.even-layout .info-content {
+  flex-direction: row-reverse;
+}
+
+.info-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1100px;
+  width: 100%;
+  gap: 2rem;
+}
+
+.info-text {
+  flex: 1;
+  padding: 1rem;
+  text-align: left;
+}
+
+.info-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.info-text p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.info-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.info-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Footer */
+.footer-section {
+  background-color: #f5f5f5;
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #777;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .info-content {
+    flex-direction: column !important; /* Stack on smaller screens */
+  }
+
+  .info-text {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+  }
+}

@@ -1,0 +1,137 @@
+/* 
+  Header.css 
+  ----------
+  A more refined, sticky header with:
+  - Box shadow on scroll.
+  - Smooth transitions.
+  - Hamburger menu for mobile.
+*/
+
+/* Sticky header base styles */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 999; /* Ensures the header is above other content */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Box shadow appears once user scrolls */
+.header--scrolled {
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header__logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 0.5rem;
+  object-fit: cover;
+}
+
+.header__site-name {
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: #333;
+  text-decoration: none;
+}
+
+/* Hamburger menu button for mobile */
+.header__hamburger {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: auto;
+  outline: none;
+}
+
+.header__hamburger .bar {
+  width: 24px;
+  height: 2px;
+  background-color: #333;
+  margin: 4px 0;
+  transition: 0.3s;
+}
+
+.header__hamburger.is-active .bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.header__hamburger.is-active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.header__hamburger.is-active .bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Navigation container */
+.header__nav {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Individual nav items */
+.header__nav-item {
+  margin: 0 1rem;
+  font-size: 1rem;
+  color: #333;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease-in-out;
+}
+
+/* Hover effect for nav items */
+.header__nav-item:hover {
+  color: #0071e3; /* Apple-like link color */
+}
+
+/* Buttons remain the same, except for potential margin adjustments in header context */
+.header__nav .btn {
+  margin: 0 0.5rem;
+}
+
+/* 
+  Responsive: 
+  Show the hamburger on small screens, hide the nav unless opened 
+*/
+@media (max-width: 768px) {
+  .header__hamburger {
+    display: flex;
+  }
+
+  .header__nav {
+    position: absolute;
+    top: 60px; /* Just below the header height */
+    left: 0;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    transform: translateY(-100%);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* When nav is open, bring it down */
+  .header__nav.open {
+    transform: translateY(0);
+  }
+
+  .header__nav-item {
+    margin: 1rem 0;
+  }
+}
